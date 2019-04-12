@@ -1,7 +1,13 @@
-from django.http import  HttpResponseRedirect
+from django.http import  HttpResponseRedirect,HttpResponse
 from django.shortcuts import render
 from app.models import TodoItem
 
+def fire(request):
+    return render(request,"first.html",{})
+
+def jaiho(request):
+    return HttpResponseRedirect('/first/')
+    
 def home_page(request):
     all_todo_items = TodoItem.objects.all()
     context={
